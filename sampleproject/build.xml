@@ -1,0 +1,35 @@
+<project>
+  
+  <property name="build.dir" value="build"/>
+  <property name="classes.dir" value="${build.dir}"/>
+  <property name="src.dir" value="src"/>
+  
+  <property name="lib.dir" value="lib"/>
+  
+  <path id="classpath">
+    <fileset dir="${lib.dir}" includes="*.jar"/>
+  </path>
+  
+  <target name="clean">
+    <delete dir="${build.dir}"/>
+  </target>
+  
+  <target name="compile">
+    <mkdir dir="${build.dir}"/>
+    <javac srcdir="${src.dir}" destdir="${classes.dir}" classpathref="classpath"/>
+  </target>
+
+  <target name="jar" depends="compile">
+    <delete file="MANIFEST.MF" />
+    <manifest file="${build.dir}/MANIFEST.MF">
+      <attribute name="Built-By" value="${user.name}"/>
+      <attribute name="Main-Class" value="msu.cse.turtletest.TestTurtle"/>
+    </manifest>
+    <jar destfile="${build.dir}/interpreter.jar"
+	 basedir="${build.dir}"
+	 manifest="${build.dir}/MANIFEST.MF">
+      <zipfileset includes="**/*.class" src="${lib.dir}/turtle.jar"/>
+    </jar>
+  </target>
+  
+</project>

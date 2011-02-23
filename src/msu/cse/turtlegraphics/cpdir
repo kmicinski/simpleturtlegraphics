@@ -1,0 +1,5 @@
+for file in `ls ../../../*java` do
+    newname=`awk -F "/" '{ print $2 }'`;
+    echo $newname;
+done
+    

@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<project name="msuturtlegraphics" default="compile" basedir="..">
+  <property name="src" location="src"/>
+  <property name="build" location="build"/>
+  <property name="lib" location="lib"/>
+  
+  <target name="clean">
+    <echo>Cleaning the ${build}</echo>
+    <delete dir="${build}"/>
+    <delete dir="${lib}"/>
+  </target>
+  
+  <target name="jar" depends="compile">
+    <delete file="${lib}/turtle.jar" />
+    <delete file="MANIFEST.MF" />
+    <manifest file="${build}/MANIFEST.MF">
+      <attribute name="Built-By" value="${user.name}"/>
+      <attribute name="Main-Class" value="msu.cse.turtlegraphics.TestTurtle"/>
+    </manifest>
+    <jar destfile="${build}/turtle.jar"
+	 basedir="${build}"
+	 manifest="${build}/MANIFEST.MF"
+	 />
+  </target>
+  
+  <target name="init" depends="clean">
+    <echo>Creating the build directory</echo>
+    <mkdir dir="${build}"/>
+    <mkdir dir="${lib}"/>
+  </target>
+  
+  <target name="compile" depends="init">
+    <echo>Compiling the source files</echo>
+    <javac srcdir="${src}/msu/cse/turtlegraphics" destdir="${build}"
+	   debug="yes"
+	   debuglevel="lines,vars,source"
+	   />
+  </target>
+</project>
