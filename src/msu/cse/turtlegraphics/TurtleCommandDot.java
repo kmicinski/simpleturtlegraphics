@@ -24,7 +24,7 @@ public class TurtleCommandDot extends TurtleCommandCircle {
     public TurtleCommandDot(int radius, int angle) 
     {
 	super(radius, angle);
-	filled = false;
+	filled = true;
     }
 }
 

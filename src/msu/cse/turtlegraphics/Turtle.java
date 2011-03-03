@@ -519,6 +519,8 @@ public class Turtle implements CommandListObserver
     
     public void home()
     {
+	currentlyFillingPolygon = null;
+	isPenDown = true;
 	currentX = 0;
 	currentY = 0;
 	currentOrientation = 90;

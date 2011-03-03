@@ -21,12 +21,12 @@ public class CircleRenderableShape extends ArcRenderableShape
     CircleRenderableShape(int centerX, int centerY, int radius, int angle,
 			  boolean filled)
     {
-	setFilled(false);
+	setFilled(filled);
 	setTopLeftX(centerX - radius);
 	setTopLeftY(centerY - radius);
 	
 	setStartAngle(0);
-	setArcAngle(360);
+	setArcAngle(angle);
 	setHeight(2 * radius);
 	setArcWidth(2 * radius);
     }

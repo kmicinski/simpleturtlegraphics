@@ -21,7 +21,7 @@ public class TestTurtle
 			   + "What might you add to make it so?\n");
 	System.out.println("f (units), b (units), l (units), r (units), pendown, penup, beginfill, endfill");
 	System.out.println("pendown, goto (x) (y), setheading (heading), circle (radius) (angle),");
-	System.out.println("dot (radius) (angle), setcolor (r) (g) (b), q to quit...");
+	System.out.println("dot (radius) (angle), color (r) (g) (b), q to quit...");
 	
 	BufferedReader inputReader = new BufferedReader(new InputStreamReader(System.in));
 	
@@ -75,7 +75,7 @@ public class TestTurtle
 	    } else if (cmd.equals("circle")) {
 		turtle.turtleCircle(args[0],args[1]);
 	    } else if (cmd.equals("dot")) {
-		turtle.turtleCircle(args[0],args[1]);
+		turtle.turtleDot(args[0],args[1]);
 	    } else if (cmd.equals("color")) {
 		turtle.turtleSetColor(args[0],args[1],args[2]);
 	    } else if (cmd.equals("beginfill")) {

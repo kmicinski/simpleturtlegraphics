@@ -20,7 +20,7 @@
     <jar destfile="${build}/turtle.jar"
 	 basedir="${build}"
 	 manifest="${build}/MANIFEST.MF">
-      <zipfileset includes="**/*.class" src="lib/main/some.jar"/>
+     <!-- <zipfileset includes="**/*.class" src="lib/main/some.jar"/> -->
     </jar>
   </target>
   
